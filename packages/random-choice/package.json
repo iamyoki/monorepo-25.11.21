@@ -4,8 +4,17 @@
   "description": "",
   "type": "module",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc -p ./tsconfig.build.json",
+    "dev": "pnpm build --watch --preserveWatchOutput"
   },
   "keywords": [],
   "author": "",

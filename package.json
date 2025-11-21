@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "clean": "del-cli **/dist **/*.tsbuildinfo"
+    "clean": "del-cli **/dist **/*.tsbuildinfo",
+    "dev": "pnpm --filter './packages/*' run -r build && pnpm run --parallel dev"
   },
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {

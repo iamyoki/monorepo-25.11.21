@@ -1,9 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "test"],
-  "compilerOptions": {
-    "paths": {
-      "random-choice": ["../../packages/random-choice/src/index.ts"]
-    }
-  }
+  "include": ["src", "test"]
 }
