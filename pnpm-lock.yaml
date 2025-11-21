@@ -18,6 +18,21 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
 
+  apps/js-app:
+    dependencies:
+      random-choice:
+        specifier: workspace:*
+        version: link:../../packages/random-choice
+
+  apps/ts-app:
+    dependencies:
+      greet:
+        specifier: workspace:*
+        version: link:../../packages/greet
+      random-choice:
+        specifier: workspace:*
+        version: link:../../packages/random-choice
+
   packages/greet: {}
 
   packages/random-choice: {}

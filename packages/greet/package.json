@@ -5,6 +5,7 @@
   "description": "",
   "type": "module",
   "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "scripts": {
     "test": "node --test"
   },
