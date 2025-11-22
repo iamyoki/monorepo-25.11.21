@@ -2,14 +2,14 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "clean": "del-cli **/dist **/*.tsbuildinfo **/.eslintcache",
     "build": "pnpm run -r build",
-    "start": "pnpm --filter './apps/*' run --parallel start",
+    "clean": "del-cli **/dist **/*.tsbuildinfo **/.eslintcache",
     "dev": "pnpm run --parallel dev",
-    "typecheck": "pnpm run -r typecheck",
-    "lint": "eslint --cache"
+    "format": "prettier --write .",
+    "lint": "eslint --cache",
+    "start": "pnpm --filter './apps/*' run --parallel start",
+    "typecheck": "pnpm run -r typecheck"
   },
-  "packageManager": "pnpm@10.23.0",
   "devDependencies": {
     "@eslint/css": "^0.14.1",
     "@eslint/js": "^9.39.1",
@@ -24,8 +24,11 @@
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
     "prettier": "^3.6.2",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^2.5.19",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.47.0"
-  }
+  },
+  "packageManager": "pnpm@10.23.0"
 }

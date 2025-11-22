@@ -3,16 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
   "type": "module",
   "scripts": {
     "dev": "node --conditions=development --watch --watch-preserve-output ./src/index.js",
     "start": "node ./src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.23.0",
   "dependencies": {
     "random-choice": "workspace:*"
-  }
+  },
+  "packageManager": "pnpm@10.23.0"
 }
