@@ -35,10 +35,19 @@ importers:
       random-choice:
         specifier: workspace:*
         version: link:../../packages/random-choice
+      random-fruit:
+        specifier: workspace:*
+        version: link:../../packages/random-fruit
 
   packages/greet: {}
 
   packages/random-choice: {}
+
+  packages/random-fruit:
+    dependencies:
+      random-choice:
+        specifier: workspace:*
+        version: link:../random-choice
 
 packages:
 

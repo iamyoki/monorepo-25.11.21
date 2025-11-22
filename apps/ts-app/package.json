@@ -5,8 +5,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "build": "tsc -p ./tsconfig.build.json",
-    "dev": "node --watch ./src/index.ts"
+    "build": "tsc -b ./tsconfig.build.json",
+    "dev": "node --watch --watch-preserve-output ./src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
   "packageManager": "pnpm@10.23.0",
   "dependencies": {
     "greet": "workspace:*",
-    "random-choice": "workspace:*"
+    "random-choice": "workspace:*",
+    "random-fruit": "workspace:*"
   }
 }

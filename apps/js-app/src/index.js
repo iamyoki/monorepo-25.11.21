@@ -1,5 +1,5 @@
 import { randomChoice } from "random-choice";
 
-const items = ["apple", "banana", "orange"];
+const items = ["aaa", "bbb", "ccc"];
 const randomItem = randomChoice(items);
 console.log(randomItem);

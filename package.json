@@ -2,7 +2,8 @@
   "private": true,
   "scripts": {
     "clean": "del-cli **/dist **/*.tsbuildinfo",
-    "dev": "pnpm --filter './packages/*' run -r build && pnpm run --parallel dev"
+    "build": "tsc -b",
+    "dev": "pnpm build && (pnpm build --watch --preserveWatchOutput & pnpm run --parallel dev)"
   },
   "packageManager": "pnpm@10.23.0",
   "devDependencies": {
