@@ -1,3 +1,5 @@
+import { greet } from "greet";
+import { randomChoice } from "random-choice";
 import { setupCounter } from "./counter.js";
 import "./style.css";
 import typescriptLogo from "./typescript.svg";
@@ -12,6 +14,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
       <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
     </a>
     <h1>Vite + TypeScript</h1>
+    <p>${greet()}, ${randomChoice(["aaa", "bbb"])}</p>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
