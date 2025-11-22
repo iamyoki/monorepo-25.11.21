@@ -45,9 +45,5 @@
     "customConditions": ["development"]
   },
   "include": [],
-  "exclude": ["node_modules"],
-  "references": [
-    { "path": "./packages/random-choice/tsconfig.build.json" },
-    { "path": "./packages/random-fruit/tsconfig.build.json" }
-  ]
+  "exclude": ["node_modules"]
 }
