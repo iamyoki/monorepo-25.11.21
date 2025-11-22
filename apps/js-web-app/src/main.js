@@ -1,9 +1,9 @@
-import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
 import { greet } from "greet";
 import { randomChoice } from "random-choice";
+import { setupCounter } from "./counter.js";
+import javascriptLogo from "./javascript.svg";
+import "./style.css";
+import viteLogo from "/vite.svg";
 
 document.querySelector("#app").innerHTML = `
   <div>

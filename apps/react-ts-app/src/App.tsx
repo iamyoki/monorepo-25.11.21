@@ -1,10 +1,10 @@
+import { greet } from "greet";
+import { MyButton } from "my-components";
+import { randomChoice } from "random-choice";
 import { useState } from "react";
+import "./app.css";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
-import "./app.css";
-import { randomChoice } from "random-choice";
-import { MyButton } from "my-components";
-import { greet } from "greet";
 
 function App() {
   const [count, setCount] = useState(0);
