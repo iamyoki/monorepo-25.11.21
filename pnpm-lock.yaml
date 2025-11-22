@@ -45,6 +45,9 @@ importers:
       greet:
         specifier: workspace:*
         version: link:../../packages/greet
+      my-components:
+        specifier: workspace:*
+        version: link:../../packages/my-components
       random-choice:
         specifier: workspace:*
         version: link:../../packages/random-choice
@@ -121,6 +124,16 @@ importers:
         version: 7.2.4(@types/node@24.10.1)(tsx@4.20.6)
 
   packages/greet: {}
+
+  packages/my-components:
+    dependencies:
+      react:
+        specifier: ^19.2.0
+        version: 19.2.0
+    devDependencies:
+      '@types/react':
+        specifier: ^19.2.6
+        version: 19.2.6
 
   packages/random-choice: {}
 
