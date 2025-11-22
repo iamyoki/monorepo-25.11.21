@@ -41,10 +41,9 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
+    "noEmit": true,
     "composite": true,
     "customConditions": ["development"]
   },
-  "include": [],
-  "exclude": ["node_modules"],
-  "references": []
+  "exclude": ["node_modules"]
 }
