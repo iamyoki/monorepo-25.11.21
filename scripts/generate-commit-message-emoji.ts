@@ -22,7 +22,7 @@ if (import.meta.main) {
       }
     }
 
-    const hasScope = /^w+\(w+\)$/.test(type);
+    const hasScope = /^\w+\(\w+\)$/.test(type);
     let scope = "";
     if (!hasScope) {
       const commitModel = new CommitModel();
