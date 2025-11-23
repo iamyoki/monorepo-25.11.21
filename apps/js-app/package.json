@@ -8,7 +8,7 @@
   "author": "",
   "type": "module",
   "scripts": {
-    "dev": "node --conditions=development --watch --watch-preserve-output ./src/index.js",
+    "dev": "node --import=tsx --conditions=development --watch --watch-preserve-output ./src/index.js",
     "start": "node ./src/index.js"
   },
   "dependencies": {

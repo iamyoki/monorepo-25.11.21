@@ -1,5 +1,5 @@
 import { readFileSync, writeFileSync } from "node:fs";
-import { EMOJI_MAP } from "./constants.ts";
+import { EMOJI_MAP } from "./constants.js";
 
 if (import.meta.main) {
   const commitMessageFilePath = process.argv[2];
