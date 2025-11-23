@@ -2,7 +2,7 @@ import path from "node:path";
 import prompts, { type Choice } from "prompts";
 import { readPackageUpSync } from "read-package-up";
 import { simpleGit, type SimpleGit } from "simple-git";
-import { EMOJI_MAP } from "./constants.ts";
+import { EMOJI_MAP } from "./constants.js";
 
 class File {
   constructor(
@@ -12,7 +12,7 @@ class File {
   ) {}
 }
 
-class Model {
+export class Model {
   private files: File[] = [];
   private readonly git: SimpleGit = simpleGit();
 
