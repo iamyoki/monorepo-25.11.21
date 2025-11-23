@@ -2,7 +2,7 @@ import path from "node:path";
 import prompts, { type Choice } from "prompts";
 import { readPackageUpSync } from "read-package-up";
 import { simpleGit, type SimpleGit } from "simple-git";
-import { EMOJI_MAP } from "./generate-commit-message-emoji.ts";
+import { EMOJI_MAP } from "./constants.ts";
 
 class File {
   constructor(
