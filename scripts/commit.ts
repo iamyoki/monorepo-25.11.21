@@ -2,6 +2,7 @@ import path from "node:path";
 import prompts, { type Choice } from "prompts";
 import { readPackageUpSync } from "read-package-up";
 import { simpleGit, type SimpleGit } from "simple-git";
+import { EMOJI_MAP } from "./generate-commit-message-emoji.ts";
 
 class File {
   constructor(
@@ -14,20 +15,6 @@ class File {
 class Model {
   private files: File[] = [];
   private readonly git: SimpleGit = simpleGit();
-
-  static readonly commitTypes: string[] = [
-    "feat",
-    "fix",
-    "chore",
-    "style",
-    "test",
-    "build",
-    "ci",
-    "docs",
-    "perf",
-    "refactor",
-    "revert",
-  ];
 
   async scan() {
     const status = await this.git.status();
@@ -50,10 +37,6 @@ class Model {
     return this.files.filter((file) => packages.includes(file.pacakgeName));
   }
 
-  getCommitTypes() {
-    return Model.commitTypes;
-  }
-
   async commit(files: File[], commitMessage: string) {
     const filePaths = files.map((file) => file.filePath);
     await this.git.add(filePaths);
@@ -73,6 +56,10 @@ class Model {
  * 4. Input commit message: add a new feature
  */
 class View {
+  private onCancelPrompts() {
+    process.exit(0);
+  }
+
   async askSelectPacakges(packageNames: string[]): Promise<string[]> {
     const choices: Choice[] = packageNames.map((name) => ({
       title: name || ".(root)",
@@ -80,14 +67,17 @@ class View {
       selected: true,
     }));
 
-    const res = await prompts({
-      name: "packages",
-      type: "multiselect",
-      message: "📦️ Select pacakges",
-      hint: "- Space to toggle selection",
-      choices,
-      instructions: false,
-    });
+    const res = await prompts(
+      {
+        name: "packages",
+        type: "multiselect",
+        message: "📦️ Select pacakges",
+        hint: "- Space to toggle selection",
+        choices,
+        instructions: false,
+      },
+      { onCancel: this.onCancelPrompts },
+    );
 
     return res.packages;
   }
@@ -100,41 +90,58 @@ class View {
       selected: true,
     }));
 
-    const res = await prompts({
-      name: "files",
-      type: "multiselect",
-      message: "📝 Which files to commit",
-      hint: "- Space to toggle selection",
-      choices,
-      instructions: false,
-    });
+    const res = await prompts(
+      {
+        name: "files",
+        type: "multiselect",
+        message: "📝 Which files to commit",
+        hint: "- Space to toggle selection",
+        choices,
+        instructions: false,
+      },
+      { onCancel: this.onCancelPrompts },
+    );
 
     return res.files;
   }
 
-  async askPickCommitType(types: string[]): Promise<string> {
+  async askPickCommitType(
+    types: {
+      emoji: string;
+      type: string;
+      title: string;
+      description: string;
+    }[],
+  ): Promise<string> {
     const choices: Choice[] = types.map((type) => ({
-      title: type,
-      value: type,
+      title: type.type,
+      description: `${type.emoji} ${type.title}`,
+      value: type.type,
     }));
 
-    const res = await prompts({
-      name: "type",
-      type: "autocomplete",
-      message: "💎 Pick a commit type",
-      choices,
-      instructions: false,
-    });
+    const res = await prompts(
+      {
+        name: "type",
+        type: "autocomplete",
+        message: "💎 Pick a commit type",
+        choices,
+        instructions: false,
+      },
+      { onCancel: this.onCancelPrompts },
+    );
 
     return res.type;
   }
 
   async askInputDescription(): Promise<string> {
-    const res = await prompts({
-      name: "description",
-      type: "text",
-      message: "💬 Input commit description",
-    });
+    const res = await prompts(
+      {
+        name: "description",
+        type: "text",
+        message: "💬 Input commit description",
+      },
+      { onCancel: this.onCancelPrompts },
+    );
 
     return res.description;
   }
@@ -162,8 +169,11 @@ class Controller {
     if (!selectedFiles.length) return;
 
     // 3.
-    const types = this.model.getCommitTypes();
-    const type = await this.view.askPickCommitType(types);
+    const commitTypes = Object.entries(EMOJI_MAP).map(([type, info]) => ({
+      type,
+      ...info,
+    }));
+    const type = await this.view.askPickCommitType(commitTypes);
 
     // 4.
     const description = await this.view.askInputDescription();
@@ -179,7 +189,9 @@ class Controller {
   }
 }
 
-const model = new Model();
-const view = new View();
-const controller = new Controller(model, view);
-controller.run();
+if (import.meta.main) {
+  const model = new Model();
+  const view = new View();
+  const controller = new Controller(model, view);
+  controller.run();
+}

@@ -43,7 +43,8 @@
 
     "noEmit": true,
     "composite": true,
-    "customConditions": ["development"]
+    "customConditions": ["development"],
+    "allowImportingTsExtensions": true
   },
   "exclude": ["node_modules"]
 }
