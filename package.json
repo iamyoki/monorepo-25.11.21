@@ -7,9 +7,9 @@
     "dev": "pnpm run --parallel dev",
     "format": "prettier --write .",
     "lint": "eslint --cache",
+    "prepare": "husky",
     "start": "pnpm --filter './apps/*' run --parallel start",
-    "typecheck": "pnpm run -r typecheck",
-    "prepare": "husky"
+    "typecheck": "pnpm run -r typecheck"
   },
   "devDependencies": {
     "@eslint/css": "^0.14.1",
