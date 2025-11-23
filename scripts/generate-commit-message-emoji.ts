@@ -10,8 +10,22 @@ if (import.meta.main) {
   const [type] = commitMessage.split(": ");
   if (!type) throw new Error("Invalid type or scope");
 
-  if (type in EMOJI_MAP) {
-    const emoji = EMOJI_MAP[type];
-    writeFileSync(commitMessageFilePath, `${emoji} ${commitMessage}`, "utf8");
+  let emoji = EMOJI_MAP[type];
+
+  if (!emoji) {
+    for (const key in EMOJI_MAP) {
+      const val = EMOJI_MAP[key];
+      if (type.startsWith(key)) {
+        emoji = val;
+      }
+    }
+  }
+
+  if (emoji) {
+    writeFileSync(
+      commitMessageFilePath,
+      `${emoji.emoji} ${commitMessage}`,
+      "utf8",
+    );
   }
 }
