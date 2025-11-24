@@ -92,23 +92,42 @@ export class Model {
     return this.files.filter((file) => file.addable);
   }
 
-  async commit(files: File[], type: string, description: string) {
-    const addableFiles = files.filter((file) => file.addable);
-
-    for (const addableFile of addableFiles) {
-      await this.git.add(addableFile.filePath);
-      addableFile.add();
+  async add(files: File[]) {
+    for (const file of files) {
+      if (!file.addable) continue;
+      await this.git.add(file.filePath);
+      file.add();
     }
+  }
 
+  async commit(type: string, description: string) {
+    const commitMessage = this.generateCommitMessage(type, description);
+    await this.git.commit(commitMessage);
+  }
+
+  generateCommitMessage(type: string, description: string): string {
     const pacakges = this.getCommitablePackages();
 
     const scope = pacakges.length
       ? `(${pacakges.map((name) => name || "root").join(", ")})`
       : "";
 
-    const commitMessage = `${type}${scope}: ${description}`;
+    let emoji = this.getEmojiByType(type);
+    emoji = emoji ? `${emoji} ` : "";
 
-    await this.git.commit(commitMessage);
+    const commitMessage = `${emoji}${type}${scope}: ${description}`;
+    return commitMessage;
+  }
+
+  private getEmojiByType(type: string): string | undefined {
+    let emoji = EMOJI_MAP[type]?.emoji;
+    if (!emoji) {
+      const key = Object.keys(EMOJI_MAP).find((key) => type.startsWith(key));
+      if (key) {
+        emoji = EMOJI_MAP[key]?.emoji;
+      }
+    }
+    return emoji;
   }
 }
 
@@ -246,7 +265,6 @@ class Controller {
     await this.model.scan();
 
     let commitFirst = false;
-    let commitFiles: File[] = [];
 
     const commitableFiles = this.model.getCommitableFiles();
 
@@ -266,9 +284,7 @@ class Controller {
       const selectedFiles = await this.view.askSelectFiles(files);
       if (!selectedFiles.length) return;
 
-      commitFiles = selectedFiles;
-    } else {
-      commitFiles = commitableFiles;
+      await this.model.add(selectedFiles);
     }
 
     // 3.
@@ -281,7 +297,7 @@ class Controller {
     // 4.
     const description = await this.view.askInputDescription();
 
-    await this.model.commit(commitFiles, type, description);
+    await this.model.commit(type, description);
     console.log("✅ Done!");
   }
 }
