@@ -101,11 +101,15 @@ export class Model {
   }
 
   async commit(type: string, description: string) {
-    const commitMessage = this.generateCommitMessage(type, description);
+    const commitMessage = this.generateCommitMessage(type, description, false);
     await this.git.commit(commitMessage);
   }
 
-  generateCommitMessage(type: string, description: string): string {
+  generateCommitMessage(
+    type: string,
+    description: string,
+    addEmoji: boolean,
+  ): string {
     const pacakges = this.getCommitablePackages();
 
     const scope = pacakges.length
@@ -115,7 +119,10 @@ export class Model {
     let emoji = this.getEmojiByType(type);
     emoji = emoji ? `${emoji} ` : "";
 
-    const commitMessage = `${emoji}${type}${scope}: ${description}`;
+    const commitMessage = addEmoji
+      ? `${emoji}${type}${scope}: ${description}`
+      : `${type}${scope}: ${description}`;
+
     return commitMessage;
   }
 
