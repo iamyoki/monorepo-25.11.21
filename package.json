@@ -21,6 +21,7 @@
     "@eslint/markdown": "^7.5.1",
     "@types/node": "^24.10.1",
     "@types/prompts": "^2.4.9",
+    "chalk": "^5.6.2",
     "del-cli": "^7.0.0",
     "eslint": "^9.39.1",
     "eslint-plugin-check-file": "^3.3.1",
