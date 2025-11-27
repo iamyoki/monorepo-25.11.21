@@ -14,9 +14,9 @@
     "typecheck": "pnpm build --noEmit"
   },
   "dependencies": {
-    "greet": "workspace:*",
-    "random-choice": "workspace:*",
-    "random-fruit": "workspace:*"
+    "@iamyoki/monorepo-25.11.21-greet": "workspace:*",
+    "@iamyoki/monorepo-25.11.21-random-choice": "workspace:*",
+    "@iamyoki/monorepo-25.11.21-random-fruit": "workspace:*"
   },
   "packageManager": "pnpm@10.23.0"
 }

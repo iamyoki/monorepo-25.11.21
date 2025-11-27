@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "greet": "workspace:*",
-    "random-choice": "workspace:*"
+    "@iamyoki/monorepo-25.11.21-greet": "workspace:*",
+    "@iamyoki/monorepo-25.11.21-random-choice": "workspace:*"
   },
   "devDependencies": {
     "typescript": "~5.9.3",

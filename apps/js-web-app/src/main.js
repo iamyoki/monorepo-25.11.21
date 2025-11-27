@@ -1,5 +1,5 @@
-import { greet } from "greet";
-import { randomChoice } from "random-choice";
+import { greet } from "@iamyoki/monorepo-25.11.21-greet";
+import { randomChoice } from "@iamyoki/monorepo-25.11.21-random-choice";
 import { setupCounter } from "./counter.js";
 import javascriptLogo from "./javascript.svg";
 import "./style.css";

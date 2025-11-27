@@ -1,6 +1,6 @@
-import { greet } from "greet";
-import { randomChoice } from "random-choice";
-import { randomFruit } from "random-fruit";
+import { greet } from "@iamyoki/monorepo-25.11.21-greet";
+import { randomChoice } from "@iamyoki/monorepo-25.11.21-random-choice";
+import { randomFruit } from "@iamyoki/monorepo-25.11.21-random-fruit";
 
 console.log(greet());
 

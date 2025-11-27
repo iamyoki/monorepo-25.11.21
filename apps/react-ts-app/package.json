@@ -10,9 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "greet": "workspace:*",
-    "my-components": "workspace:*",
-    "random-choice": "workspace:*",
+    "@iamyoki/monorepo-25.11.21-greet": "workspace:*",
+    "@iamyoki/monorepo-25.11.21-my-components": "workspace:*",
+    "@iamyoki/monorepo-25.11.21-random-choice": "workspace:*",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

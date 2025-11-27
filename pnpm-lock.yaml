@@ -110,16 +110,16 @@ importers:
 
   apps/js-app:
     dependencies:
-      random-choice:
+      '@iamyoki/monorepo-25.11.21-random-choice':
         specifier: workspace:*
         version: link:../../packages/random-choice
 
   apps/js-web-app:
     dependencies:
-      greet:
+      '@iamyoki/monorepo-25.11.21-greet':
         specifier: workspace:*
         version: link:../../packages/greet
-      random-choice:
+      '@iamyoki/monorepo-25.11.21-random-choice':
         specifier: workspace:*
         version: link:../../packages/random-choice
     devDependencies:
@@ -129,13 +129,13 @@ importers:
 
   apps/react-ts-app:
     dependencies:
-      greet:
+      '@iamyoki/monorepo-25.11.21-greet':
         specifier: workspace:*
         version: link:../../packages/greet
-      my-components:
+      '@iamyoki/monorepo-25.11.21-my-components':
         specifier: workspace:*
         version: link:../../packages/my-components
-      random-choice:
+      '@iamyoki/monorepo-25.11.21-random-choice':
         specifier: workspace:*
         version: link:../../packages/random-choice
       react:
@@ -184,22 +184,22 @@ importers:
 
   apps/ts-app:
     dependencies:
-      greet:
+      '@iamyoki/monorepo-25.11.21-greet':
         specifier: workspace:*
         version: link:../../packages/greet
-      random-choice:
+      '@iamyoki/monorepo-25.11.21-random-choice':
         specifier: workspace:*
         version: link:../../packages/random-choice
-      random-fruit:
+      '@iamyoki/monorepo-25.11.21-random-fruit':
         specifier: workspace:*
         version: link:../../packages/random-fruit
 
   apps/ts-web-app:
     dependencies:
-      greet:
+      '@iamyoki/monorepo-25.11.21-greet':
         specifier: workspace:*
         version: link:../../packages/greet
-      random-choice:
+      '@iamyoki/monorepo-25.11.21-random-choice':
         specifier: workspace:*
         version: link:../../packages/random-choice
     devDependencies:
@@ -226,7 +226,7 @@ importers:
 
   packages/random-fruit:
     dependencies:
-      random-choice:
+      '@iamyoki/monorepo-25.11.21-random-choice':
         specifier: workspace:*
         version: link:../random-choice
 

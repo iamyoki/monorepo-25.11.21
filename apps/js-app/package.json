@@ -12,7 +12,7 @@
     "start": "node ./src/index.js"
   },
   "dependencies": {
-    "random-choice": "workspace:*"
+    "@iamyoki/monorepo-25.11.21-random-choice": "workspace:*"
   },
   "packageManager": "pnpm@10.23.0"
 }

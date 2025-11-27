@@ -1,6 +1,6 @@
-import { greet } from "greet";
-import { MyButton } from "my-components";
-import { randomChoice } from "random-choice";
+import { greet } from "@iamyoki/monorepo-25.11.21-greet";
+import { MyButton } from "@iamyoki/monorepo-25.11.21-my-components";
+import { randomChoice } from "@iamyoki/monorepo-25.11.21-random-choice";
 import { useState } from "react";
 import "./app.css";
 import reactLogo from "./assets/react.svg";
