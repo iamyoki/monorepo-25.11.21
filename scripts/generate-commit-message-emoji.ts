@@ -10,12 +10,12 @@ if (import.meta.main) {
     const commitMessage = readFileSync(commitMessageFilePath, "utf8");
 
     // eslint-disable-next-line prefer-const
-    let [, emoji, type, scope, description] =
+    let [, emoji, type, scope = "", description] =
       commitMessage.match(/^(.*?)\s*(\w+)(\([^()]+\))?:\s(.+)/) ?? [];
 
     if (!type || !description) throw new Error("Invalid commit message");
 
-    let emojiObj = EMOJI_MAP[type];
+    let emojiObj = EMOJI_MAP[type + scope];
     if (!emojiObj) {
       for (const key in EMOJI_MAP) {
         const val = EMOJI_MAP[key];
