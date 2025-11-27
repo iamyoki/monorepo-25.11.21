@@ -1,3 +1,14 @@
+## 0.0.4 (2025-11-27)
+
+### 🤖 CI
+
+- **root, react-ts-app:** add deploy ([51c555d](https://github.com/iamyoki/monorepo-25.11.21/commit/51c555d))
+- **root:** publish.yaml ([cc5524e](https://github.com/iamyoki/monorepo-25.11.21/commit/cc5524e))
+
+### ❤️ Thank You
+
+- Yoki @iamyoki
+
 ## 0.0.3 (2025-11-27)
 
 ### 🏡 Chore
