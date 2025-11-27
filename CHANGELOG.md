@@ -1,3 +1,20 @@
+## 0.0.2 (2025-11-27)
+
+### 🏡 Chore
+
+- **js-app, js-web-app, react-ts-app, ts-app, ts-web-app, @iamyoki/monorepo-25.11.21-greet, @iamyoki/monorepo-25.11.21-my-components, @iamyoki/monorepo-25.11.21-random-choice, @iamyoki/monorepo-25.11.21-random-fruit, root:** change package name ([b16dab8](https://github.com/iamyoki/monorepo-25.11.21/commit/b16dab8))
+- **root:** fix emoji ([31f958c](https://github.com/iamyoki/monorepo-25.11.21/commit/31f958c))
+- **root:** fix deps ([274d8f6](https://github.com/iamyoki/monorepo-25.11.21/commit/274d8f6))
+
+### 🤖 CI
+
+- **root:** workflow config ([f6a0aaa](https://github.com/iamyoki/monorepo-25.11.21/commit/f6a0aaa))
+- **root:** fix release ([b12aeea](https://github.com/iamyoki/monorepo-25.11.21/commit/b12aeea))
+
+### ❤️ Thank You
+
+- Yoki @iamyoki
+
 ## 0.0.1 (2025-11-26)
 
 ### 🩹 Fixes
