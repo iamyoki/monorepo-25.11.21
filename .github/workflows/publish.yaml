@@ -1,21 +1,21 @@
-name: Release
+name: Publish
 
-run-name: 🚀 Release by ${{ github.actor }}
+run-name: 🚀 Publish by ${{ github.actor }}
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Release
+    types:
+      - completed
     branches:
       - main
 
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
-  release:
+  publish-github-packages:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - uses: actions/checkout@v6
         with:
@@ -29,6 +29,8 @@ jobs:
         with:
           node-version: 24
           cache: "pnpm"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@iamyoki"
 
       - name: Install dependencies
         run: pnpm install
@@ -36,8 +38,12 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Nx release (without publish)
-        run: pnpm nx release --skip-publish
+      - name: Print Environment Info
+        run: npx nx report
+        shell: bash
+
+      - name: Publish github packages
+        run: npx nx release publish
         shell: bash
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
