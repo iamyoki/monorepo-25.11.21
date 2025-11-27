@@ -46,7 +46,8 @@ jobs:
         run: pnpm install
 
       - name: Build
-        env: VITE_BASE_URL=${{ github.event.repository.name }}
+        env:
+          VITE_BASE_URL: /${{ github.event.repository.name }}
         run: pnpm --filter react-ts-app... run build
 
       - name: Setup Pages
