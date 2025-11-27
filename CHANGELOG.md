@@ -1,3 +1,19 @@
+## 0.0.3 (2025-11-27)
+
+### 🏡 Chore
+
+- **js-web-app, react-ts-app, ts-app, ts-web-app, root, @iamyoki/monorepo-25.11.21-my-components, @iamyoki/monorepo-25.11.21-random-choice, @iamyoki/monorepo-25.11.21-random-fruit:** add files in package.json ([d24bac5](https://github.com/iamyoki/monorepo-25.11.21/commit/d24bac5))
+
+### 🤖 CI
+
+- **root:** fix publish yaml ([cf1df45](https://github.com/iamyoki/monorepo-25.11.21/commit/cf1df45))
+- **root:** add if ([d833776](https://github.com/iamyoki/monorepo-25.11.21/commit/d833776))
+- **root:** publish.yaml ([269ae3e](https://github.com/iamyoki/monorepo-25.11.21/commit/269ae3e))
+
+### ❤️ Thank You
+
+- Yoki @iamyoki
+
 ## 0.0.2 (2025-11-27)
 
 ### 🏡 Chore
