@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm run -r build",
-    "clean": "del-cli **/dist **/*.tsbuildinfo **/.eslintcache",
+    "clean": "del-cli **/dist **/*.tsbuildinfo **/.eslintcache *.tgz",
     "commit": "node --import=tsx ./scripts/commit.ts",
     "dev": "pnpm run --parallel dev",
     "format": "prettier --write .",

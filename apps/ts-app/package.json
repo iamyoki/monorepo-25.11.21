@@ -7,6 +7,9 @@
   "license": "ISC",
   "author": "",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc -b ./tsconfig.build.json",
     "dev": "node --import=tsx --conditions=development --watch --watch-preserve-output ./src/index.ts",
