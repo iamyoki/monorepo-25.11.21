@@ -15,7 +15,7 @@ jobs:
   publish-github-packages:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
     if: ${{ github.event.workflow_run.conclusion=='success' }}
     steps:
@@ -63,3 +63,4 @@ jobs:
         with:
           tag_name: ${{ env.TAG_NAME }}
           files: "*.tgz"
+          overwrite_files: false
